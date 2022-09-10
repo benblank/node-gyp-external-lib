@@ -1,0 +1,43 @@
+gyp info it worked if it ends with ok
+gyp info using node-gyp@9.1.0
+gyp info using node@16.17.0 | linux | x64
+gyp info find Python using Python version 3.10.4 found at "/usr/bin/python3"
+gyp info spawn /usr/bin/python3
+gyp info spawn args [
+gyp info spawn args   '/home/five35/.nvm/versions/node/v16.17.0/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py',
+gyp info spawn args   'binding.gyp',
+gyp info spawn args   '-f',
+gyp info spawn args   'make',
+gyp info spawn args   '-I',
+gyp info spawn args   '/home/five35/working/node-gyp-external-lib/build/config.gypi',
+gyp info spawn args   '-I',
+gyp info spawn args   '/home/five35/.nvm/versions/node/v16.17.0/lib/node_modules/npm/node_modules/node-gyp/addon.gypi',
+gyp info spawn args   '-I',
+gyp info spawn args   '/home/five35/.cache/node-gyp/16.17.0/include/node/common.gypi',
+gyp info spawn args   '-Dlibrary=shared_library',
+gyp info spawn args   '-Dvisibility=default',
+gyp info spawn args   '-Dnode_root_dir=/home/five35/.cache/node-gyp/16.17.0',
+gyp info spawn args   '-Dnode_gyp_dir=/home/five35/.nvm/versions/node/v16.17.0/lib/node_modules/npm/node_modules/node-gyp',
+gyp info spawn args   '-Dnode_lib_file=/home/five35/.cache/node-gyp/16.17.0/<(target_arch)/node.lib',
+gyp info spawn args   '-Dmodule_root_dir=/home/five35/working/node-gyp-external-lib',
+gyp info spawn args   '-Dnode_engine=v8',
+gyp info spawn args   '--depth=.',
+gyp info spawn args   '--no-parallel',
+gyp info spawn args   '--generator-output',
+gyp info spawn args   'build',
+gyp info spawn args   '-Goutput_dir=.'
+gyp info spawn args ]
+gyp info spawn make
+gyp info spawn args [ 'BUILDTYPE=Release', '-C', 'build' ]
+make: Entering directory '/home/five35/working/node-gyp-external-lib/build'
+  LD_LIBRARY_PATH=/home/five35/working/node-gyp-external-lib/build/Release/lib.host:/home/five35/working/node-gyp-external-lib/build/Release/lib.target:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd ../deps; mkdir -p external_lib; make "--directory=external_lib" library.o
+make[1]: Entering directory '/home/five35/working/node-gyp-external-lib/deps/external_lib'
+cc    -c -o library.o library.c
+make[1]: Leaving directory '/home/five35/working/node-gyp-external-lib/deps/external_lib'
+  rm -f Release/obj.target/deps/external_lib.a && ar crs Release/obj.target/deps/external_lib.a 
+  ln -f "Release/obj.target/deps/external_lib.a" "Release/external_lib.a" 2>/dev/null || (rm -rf "Release/external_lib.a" && cp -af "Release/obj.target/deps/external_lib.a" "Release/external_lib.a")
+  cc -o Release/obj.target/addon/src/addon.o ../src/addon.c '-DNODE_GYP_MODULE_NAME=addon' '-DUSING_UV_SHARED=1' '-DUSING_V8_SHARED=1' '-DV8_DEPRECATION_WARNINGS=1' '-DV8_DEPRECATION_WARNINGS' '-DV8_IMMINENT_DEPRECATION_WARNINGS' '-D_GLIBCXX_USE_CXX11_ABI=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-D__STDC_FORMAT_MACROS' '-DOPENSSL_NO_PINSHARED' '-DOPENSSL_THREADS' '-DBUILDING_NODE_EXTENSION' -I/home/five35/.cache/node-gyp/16.17.0/include/node -I/home/five35/.cache/node-gyp/16.17.0/src -I/home/five35/.cache/node-gyp/16.17.0/deps/openssl/config -I/home/five35/.cache/node-gyp/16.17.0/deps/openssl/openssl/include -I/home/five35/.cache/node-gyp/16.17.0/deps/uv/include -I/home/five35/.cache/node-gyp/16.17.0/deps/zlib -I/home/five35/.cache/node-gyp/16.17.0/deps/v8/include -I../deps/external_lib  -fPIC -pthread -Wall -Wextra -Wno-unused-parameter -m64 -O3 -fno-omit-frame-pointer  -MMD -MF ./Release/.deps/Release/obj.target/addon/src/addon.o.d.raw   -c
+  g++ -o Release/obj.target/addon.node -shared -pthread -rdynamic -m64  -Wl,-soname=addon.node -Wl,--start-group Release/obj.target/addon/src/addon.o Release/obj.target/deps/external_lib.a -Wl,--end-group 
+  ln -f "Release/obj.target/addon.node" "Release/addon.node" 2>/dev/null || (rm -rf "Release/addon.node" && cp -af "Release/obj.target/addon.node" "Release/addon.node")
+make: Leaving directory '/home/five35/working/node-gyp-external-lib/build'
+gyp info ok 
