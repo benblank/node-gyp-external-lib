@@ -39,19 +39,7 @@ a - library.o
 make[1]: Leaving directory '/home/five35/working/node-gyp-external-lib/deps/external_lib'
   touch Release/obj.target/deps/external_lib.stamp
   cc -o Release/obj.target/addon/src/addon.o ../src/addon.c '-DNODE_GYP_MODULE_NAME=addon' '-DUSING_UV_SHARED=1' '-DUSING_V8_SHARED=1' '-DV8_DEPRECATION_WARNINGS=1' '-DV8_DEPRECATION_WARNINGS' '-DV8_IMMINENT_DEPRECATION_WARNINGS' '-D_GLIBCXX_USE_CXX11_ABI=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-D__STDC_FORMAT_MACROS' '-DOPENSSL_NO_PINSHARED' '-DOPENSSL_THREADS' '-DBUILDING_NODE_EXTENSION' -I/home/five35/.cache/node-gyp/16.17.0/include/node -I/home/five35/.cache/node-gyp/16.17.0/src -I/home/five35/.cache/node-gyp/16.17.0/deps/openssl/config -I/home/five35/.cache/node-gyp/16.17.0/deps/openssl/openssl/include -I/home/five35/.cache/node-gyp/16.17.0/deps/uv/include -I/home/five35/.cache/node-gyp/16.17.0/deps/zlib -I/home/five35/.cache/node-gyp/16.17.0/deps/v8/include -I../deps/external_lib  -fPIC -pthread -Wall -Wextra -Wno-unused-parameter -m64 -O3 -fno-omit-frame-pointer  -MMD -MF ./Release/.deps/Release/obj.target/addon/src/addon.o.d.raw   -c
-  g++ -o Release/obj.target/addon.node -shared -pthread -rdynamic -m64  -Wl,-soname=addon.node -Wl,--start-group Release/obj.target/addon/src/addon.o -Wl,--end-group deps/external_lib.a
-/usr/bin/ld: cannot find deps/external_lib.a: No such file or directory
-collect2: error: ld returned 1 exit status
-make: *** [addon.target.mk:145: Release/obj.target/addon.node] Error 1
+  g++ -o Release/obj.target/addon.node -shared -pthread -rdynamic -m64  -Wl,-soname=addon.node -Wl,--start-group Release/obj.target/addon/src/addon.o -Wl,--end-group /home/five35/working/node-gyp-external-lib/deps/external_lib.a
+  ln -f "Release/obj.target/addon.node" "Release/addon.node" 2>/dev/null || (rm -rf "Release/addon.node" && cp -af "Release/obj.target/addon.node" "Release/addon.node")
 make: Leaving directory '/home/five35/working/node-gyp-external-lib/build'
-gyp ERR! build error 
-gyp ERR! stack Error: `make` failed with exit code: 2
-gyp ERR! stack     at ChildProcess.onExit (/home/five35/.nvm/versions/node/v16.17.0/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:201:23)
-gyp ERR! stack     at ChildProcess.emit (node:events:513:28)
-gyp ERR! stack     at Process.ChildProcess._handle.onexit (node:internal/child_process:291:12)
-gyp ERR! System Linux 5.10.102.1-microsoft-standard-WSL2
-gyp ERR! command "/home/five35/.nvm/versions/node/v16.17.0/bin/node" "/home/five35/.nvm/versions/node/v16.17.0/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
-gyp ERR! cwd /home/five35/working/node-gyp-external-lib
-gyp ERR! node -v v16.17.0
-gyp ERR! node-gyp -v v9.1.0
-gyp ERR! not ok 
+gyp info ok

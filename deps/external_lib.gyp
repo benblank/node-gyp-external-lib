@@ -9,7 +9,7 @@
           "external_lib",
         ],
         "libraries": [
-          "external_lib.a",
+          "<!(pwd)/external_lib.a",
         ],
       },
       "actions": [
